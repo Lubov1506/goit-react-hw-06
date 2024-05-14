@@ -20,7 +20,7 @@ const persistConfig = {
   storage,
 };
 const filterConfig = {
-  key: "root",
+  key: "filter",
   version: 1,
   storage,
 };
