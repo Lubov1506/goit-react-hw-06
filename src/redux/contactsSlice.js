@@ -1,32 +1,36 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { nanoid } from "nanoid";
 import getFormatNumber from "../helpers/functions";
-const items = [];
+const initialState = {
+  items: [],
+};
 
 const contactsSlice = createSlice({
   name: "contacts",
-  initialState: items,
+  initialState: initialState,
+  selectors: { selectContacts: (state) => state.contacts },
   reducers: {
     addContact: {
       reducer(state, action) {
-        console.log(action);
-        state.push(action.payload);
+        state.contacts.push(action.payload);
       },
-      prepare(values) {
+      prepare(payload) {
         return {
           payload: {
-            name: values.name,
-            number: getFormatNumber(values.number),
+            name: payload.name,
+            number: getFormatNumber(payload.number),
             id: nanoid(),
           },
         };
       },
     },
     deleteContact(state, action) {
-      const index = state.find((contact) => contact.id === action.payload);
-      state.splice(index, 1);
+      state.contacts = state.contacts.filter(
+        (item) => item.id !== action.payload
+      );
     },
   },
 });
 export const { addContact, deleteContact } = contactsSlice.actions;
 export const contactsReducer = contactsSlice.reducer;
+export const { selectContacts } = contactsSlice.selectors;
