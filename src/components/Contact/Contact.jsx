@@ -4,6 +4,7 @@ import Button from "../Button/Button";
 import s from "./Contact.module.css";
 import { useDispatch } from "react-redux";
 import { deleteContact } from "../../redux/contactsSlice";
+import getFormatNumber from "../../helpers/functions";
 
 const Contact = ({ item: { name, number, id } }) => {
   const dispatch = useDispatch();
@@ -16,7 +17,7 @@ const Contact = ({ item: { name, number, id } }) => {
         </p>
         <p>
           <FaPhoneAlt />
-          <span>{number}</span>
+          <span>{getFormatNumber(number)}</span>
         </p>
       </div>
       <Button onClick={() => dispatch(deleteContact(id))}>Delete</Button>

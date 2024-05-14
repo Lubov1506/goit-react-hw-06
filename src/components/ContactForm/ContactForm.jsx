@@ -4,9 +4,8 @@ import { FeedbackSchema } from "../../helpers/validateSchema";
 import { useDispatch } from "react-redux";
 import { addContact } from "../../redux/contactsSlice";
 
-
 const ContactForm = () => {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const initValue = {
     name: "",
     number: "",
