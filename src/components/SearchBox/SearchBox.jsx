@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { changeFilter } from "../../redux/filtersSlice";
-import s from "./ContactsApp.module.css";
+import s from "./SearchBox.module.css";
 import clsx from "clsx";
 import { selectNameFilter } from "../../redux/selectors";
 

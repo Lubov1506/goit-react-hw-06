@@ -1,5 +1,5 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import s from "./ContactsApp.module.css";
+import s from "./ContactsForm.module.css";
 import { FeedbackSchema } from "../../helpers/validateSchema";
 import { useDispatch } from "react-redux";
 import { addContact } from "../../redux/contactsSlice";
